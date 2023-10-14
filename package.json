@@ -1,0 +1,146 @@
+{
+    "name": "dats-desktop",
+    "version": "1.0.7",
+    "description": "DatsProject Desktop Application.",
+    "main": "main.js",
+    "scripts": {
+        "electron": "ELECTRON_DISABLE_SECURITY_WARNINGS=true electron .",
+        "start": "electron-forge start",
+        "build": "webpack --config webpack.config.js",
+        "package": "electron-forge package",
+        "package:mac": "electron-packager . dats-desktop --prune=true --arch=arm64 --asar --overwrite",
+        "package:win": "electron-packager . dats-desktop --prune=true --arch=x64 --asar --overwrite",
+        "make": "electron-forge make",
+        "publish": "electron-builder build --mac --win --publish always",
+        "publish:win": "electron-builder build --win --publish always",
+        "publish:mac": "electron-builder build --mac --arm64 --x64 --publish always",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "author": "Dats Project",
+    "license": "ISC",
+    "devDependencies": {
+        "@electron-forge/cli": "^6.0.0-beta.61",
+        "@electron-forge/maker-deb": "^6.0.0-beta.61",
+        "@electron-forge/maker-rpm": "^6.0.0-beta.61",
+        "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
+        "@electron-forge/maker-zip": "^6.0.0-beta.61",
+        "@electron/notarize": "^2.1.0",
+        "electron": "^16.2.8",
+        "electron-builder": "^23.3.3",
+        "electron-notarize": "^1.2.1",
+        "electron-packager": "^15.5.1",
+        "electron-rebuild": "^3.2.7",
+        "webpack": "^5.88.1",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "@electron/remote": "^2.0.4",
+        "@wagmi/core": "^1.3.9",
+        "@walletconnect/node": "^1.0.0",
+        "@walletconnect/qrcode-modal": "^1.7.1",
+        "@web3modal/ethereum": "^2.7.0",
+        "@web3modal/html": "^2.7.0",
+        "axios": "^0.26.1",
+        "babel-loader": "^9.1.3",
+        "dotenv": "^16.0.1",
+        "electron-background": "^1.0.0",
+        "electron-log": "^4.4.8",
+        "electron-squirrel-startup": "^1.0.0",
+        "electron-store": "^8.1.0",
+        "electron-updater": "^5.2.1",
+        "eth-sig-util": "^3.0.1",
+        "ethers": "^5.6.9",
+        "express": "^4.18.2",
+        "find-process": "^1.4.7",
+        "form-data": "^4.0.0",
+        "getmac": "^5.20.0",
+        "ip-monitor": "^1.1.1",
+        "jwt-decode": "^3.1.2",
+        "moment": "^2.29.4",
+        "mqtt": "^4.3.7",
+        "node-schedule": "^2.1.1",
+        "ps-tree": "^1.2.0",
+        "raw-loader": "^4.0.2",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.2.2",
+        "viem": "^1.2.15",
+        "web3modal": "^1.9.12"
+    },
+    "sideEffects": false,
+    "build": {
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "datsproject",
+                "repo": "dats-desktop-publish"
+            }
+        ],
+        "appId": "com.datsproject.app",
+        "productName": "Dats Project",
+        "afterSign": "./build/notarize.js",
+        "compression": "maximum",
+        "mac": {
+            "category": "public.app-category.productivity",
+            "hardenedRuntime": true,
+            "entitlements": "./build/entitlements.mac.plist",
+            "target": [
+                "dmg",
+                "zip"
+            ]
+        },
+        "win": {
+            "target": "nsis",
+            "requestedExecutionLevel": "requireAdministrator",
+            "extraFiles": [
+                {
+                    "from": "./",
+                    "to": "",
+                    "filter": [
+                        "*.exe"
+                    ]
+                }
+            ]
+        },
+        "nsis": {
+            "oneClick": false,
+            "deleteAppDataOnUninstall": true,
+            "perMachine": true,
+            "license": "./build/license.md",
+            "allowToChangeInstallationDirectory": false,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "runAfterFinish": false
+        },
+        "linux": {
+            "category": "Network",
+            "target": "AppImage"
+        }
+    },
+    "config": {
+        "forge": {
+            "packagerConfig": {},
+            "makers": [
+                {
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {
+                        "name": "electron_desktop"
+                    }
+                },
+                {
+                    "name": "@electron-forge/maker-zip",
+                    "platforms": [
+                        "darwin"
+                    ]
+                },
+                {
+                    "name": "@electron-forge/maker-deb",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {}
+                }
+            ]
+        }
+    }
+}

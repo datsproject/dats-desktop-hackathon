@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--favicon-->
+    <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+    <!--plugins-->
+    <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css" />
+    <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+    <link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- loader-->
+    <!-- <link href="assets/css/pace.min.css" rel="stylesheet" />
+    <script src="assets/js/pace.min.js"></script> -->
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/app.css" rel="stylesheet" />
+    <link href="assets/css/icons.css" rel="stylesheet" />
+    <link href="assets/css/index.css" rel="stylesheet" />
+    <title>Dats Project</title>
+
+    <!-- <script src="https://c0f4f41c-2f55-4863-921b-sdk-docs.github.io/cdn/metamask-sdk.js"></script> -->
+    <!-- <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.12/dist/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script> -->
+    <!-- <script src="assets/plugins/@metamask/sdk/dist/browser/iife/metamask-sdk.js"></script> -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+</head>
+
+<body class="bg-theme bg-theme1 ibody">
+    <div class="wrapper">
+        <div class="sidebar-wrapper" data-simplebar="true">
+            <div class="sidebar-header">
+                <div>
+                    <img src="assets/images/dats-logo.png" width="175px" alt="logo icon" />
+                </div>
+                <!-- <div>
+                    <h4 class="logo-text">Dats</h4>
+                </div> 
+                <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
+                </div>-->
+            </div>
+
+            <ul class="metismenu" id="menu">
+                <li id="dashboardLink">
+                    <a href="index.html">
+                        <div class="parent-icon"><i class="bx bx-home-circle"></i></div>
+                        <div class="menu-title">Dashboard</div>
+                    </a>
+                </li>
+
+                <li class="menu-label">Services</li>
+
+                <li id="ddosLink">
+                    <a href="pages/ddos.html">
+                        <div class="parent-icon">
+                            <i class="bx bx-chevrons-right"></i>
+                        </div>
+                        <div class="menu-title">DDOS Test</div>
+                    </a>
+                </li>
+                <li id="cyberLink">
+                    <a href="pages/cyber.html">
+                        <div class="parent-icon">
+                            <i class="bx bx-chevrons-right"></i>
+                        </div>
+                        <div class="menu-title">Cyber Sec. Research</div>
+                    </a>
+                </li>
+
+                <li id="vulnerabilityLink">
+                    <a href="pages/vulnerability.html">
+                        <div class="parent-icon">
+                            <i class="bx bx-chevrons-right"></i>
+                        </div>
+                        <div class="menu-title">Vulnerability Scanning</div>
+                    </a>
+                </li>
+
+                <li id="superLink">
+                    <a href="pages/super.html">
+                        <div class="parent-icon">
+                            <i class="bx bx-chevrons-right"></i>
+                        </div>
+                        <div class="menu-title">Super Computer</div>
+                    </a>
+                </li>
+
+                <li id="blockchainLink">
+                    <a href="pages/blockchain.html">
+                        <div class="parent-icon">
+                            <i class="bx bx-chevrons-right"></i>
+                        </div>
+                        <div class="menu-title">Blockchain Security</div>
+                    </a>
+                </li>
+
+                <li class="menu-label">Others</li>
+
+                <li id="refferalLink">
+                    <a href="pages/refferal.html">
+                        <div class="parent-icon">
+                            <i class="bx bx-chevrons-right"></i>
+                        </div>
+                        <div class="menu-title">Refferal</div>
+                    </a>
+                </li>
+
+                <!-- <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class="bx bx-category"></i>
+                        </div>
+                        <div class="menu-title">Categories</div>
+                    </a>
+                    <ul>
+                        <li> <a href="pages/ddos.html"><i class="bx bx-right-arrow-alt"></i> DDos Test</a>
+                        </li>
+                        <li> <a href="pages/cyber.html"><i class="bx bx-right-arrow-alt"></i> Cyber Sec. Research</a>
+                        </li>
+                        <li> <a href="pages/vulnerability.html"><i class="bx bx-right-arrow-alt"></i> Vulnerability
+								Scanning</a>
+                        </li>
+                        <li> <a href="pages/super.html"><i class="bx bx-right-arrow-alt"></i> Super Computer</a>
+                        </li>
+                        <li><a href="pages/blockchain.html"><i class="bx bx-right-arrow-alt"></i> Blockchain
+								Security</a>
+                        </li>
+                    </ul>
+                </li> -->
+
+                <!-- <li class="menu-label">Pages</li>
+                <li>
+                    <a href="pages/settings.html">
+                        <div class="parent-icon">
+                            <i class='bx bx-cog'></i>
+                        </div>
+                        <div class="menu-title">Settings</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/login-info.html">
+                        <div class="parent-icon"><i class='bx bx-cookie'></i>
+                        </div>
+                        <div class="menu-title">Login Info</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pages/progress-payments.html">
+                        <div class="parent-icon"> <i class='bx bx-trending-up'></i>
+                        </div>
+                        <div class="menu-title"> Progress Payments</div>
+                    </a>
+                </li> -->
+            </ul>
+
+            <span id="appVersionInfo"></span>
+        </div>
+
+        <header>
+            <div class="topbar d-flex align-items-center">
+                <nav class="navbar navbar-expand">
+                    <div class="mobile-toggle-menu"><i class="bx bx-menu"></i></div>
+                    <div class="search-bar flex-grow-1 text-center">
+                        <i class="bx bx-info-circle"></i> No value is displayed in the process of the testnet
+                    </div>
+
+                    <div class="top-menu ms-auto">
+                        <h6 id="timeCounter" class="msg-name"></h6>
+                        <!-- <ul class="navbar-nav align-items-center">
+                             <li class="nav-item dropdown dropdown-large">
+                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true"> <span id="spanAlertCount"></span>
+                                    <i class="bx bx-bell"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:;">
+                                        <div class="msg-header">
+                                            <p class="msg-header-title">Notifications</p>
+                                        </div>
+                                    </a>
+                                    <div id="divNotificationList" class="header-notifications-list">
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-success text-success"><i class="bx bx-file"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 id="hNotificationMessage" class="msg-name">24 PDF File</h6>
+                                                    <p id="pNotificationMessageDetail" class="msg-info">The pdf files generated</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li> 
+
+
+                        </ul>-->
+                    </div>
+
+                    <div id="connectedProfile" class="user-box dropdown">
+                        <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img id="picture" src="assets/images/metamask.png" class="user-img" alt="user avatar" />
+                            <div class="user-info ps-3">
+                                <p id="accountAddress" class="user-name mb-0">Fullname</p>
+                                <p class="designattion mb-0 text-green">Connected</p>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bx bx-user"></i>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="javascript:;"><i class="bx bx-cog"></i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="javascript:;"><i class="bx bx-home-circle"></i>
+                                    <span>My Tasks</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="javascript:;"><i class="bx bx-dollar-circle"></i>
+                                    <span>My Earnings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dropdown-divider mb-0"></div>
+                            </li>
+                            <li>
+                                <a id="logout" class="dropdown-item" href="javascript:;"><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="connectToMetamask" class="user-box">
+                        <a class="d-flex align-items-center nav-link" href="#" role="button">
+                            <img id="picture" src="assets/images/metamask.png" class="user-img" alt="user avatar" />
+                            <div class="user-info ps-3">
+                                <p id="fullname" class="user-name mb-0">Connect to Metamask</p>
+                            </div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="page-wrapper">
+            <div id="dashboard" class="page-content">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
+                    <div class="col">
+                        <div class="card radius-10">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0">Earnings</p>
+                                        <h4 class="my-1">$N/A</h4>
+                                        <p class="mb-0 font-13"><i class="bx bxs-up-arrow align-middle"></i>$N/A Last 1 Week</p>
+                                    </div>
+                                    <div class="widgets-icons ms-auto">
+                                        <i class="bx bxs-wallet"></i>
+                                    </div>
+                                </div>
+                                <div id="chart1"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card radius-10">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0">Completed Tasks</p>
+                                        <h4 class="my-1">N/A</h4>
+                                        <p class="mb-0 font-13"><i class="bx bxs-up-arrow align-middle"></i>N/A Tasks - Last 1 Week</p>
+                                    </div>
+                                    <div class="widgets-icons ms-auto">
+                                        <i class="bx bxs-group"></i>
+                                    </div>
+                                </div>
+                                <div id="chart2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="card radius-10">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0">Pending Tasks</p>
+                                        <h4 class="my-1">N/A</h4>
+                                        <p class="mb-0 font-13"><i class="bx bxs-down-arrow align-middle"></i>Next 1 Week</p>
+                                    </div>
+                                    <div class="widgets-icons ms-auto">
+                                        <i class="bx bxs-binoculars"></i>
+                                    </div>
+                                </div>
+                                <div id="chart3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="card radius-10">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0">Participation Rate</p>
+                                        <h4 class="my-1">N/A</h4>
+                                        <p class="mb-0 font-13"><i class="bx bxs-down-arrow align-middle"></i>Last 12 months statistics</p>
+                                    </div>
+                                    <div class="widgets-icons ms-auto">
+                                        <i class="bx bx-pie-chart"></i>
+                                    </div>
+                                </div>
+                                <div id="chart3_1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-xl-2">
+
+                    <div class="col d-flex">
+                        <div class="card radius-10 w-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">
+                                            Task Participation on a Monthly Basis
+                                        </h5>
+                                        <p class="mb-0 font-13">
+                                            <i class="bx bxs-calendar"></i> Last 30 days earnings
+                                        </p>
+                                    </div>
+                                    <div class="font-22 ms-auto">
+                                        <i class="bx bx-dots-horizontal-rounded"></i>
+                                    </div>
+                                </div>
+
+                                <div id="chart4"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col d-flex">
+                        <div class="card radius-10 w-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">
+                                        </h5>
+                                        <p class="mb-0 font-13">
+                                        </p>
+                                    </div>
+                                    <div class="font-22 ms-auto">
+                                        <button id="mintNft" class="btn btn-sm btn-light px-5 radius-30" type="button"><i
+                                      class='bx bx-coin'></i> Mint NFT
+                              </button>
+                                        <button id="processingMintNft" class="btn btn-light d-none" type="button" disabled>
+                                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                   Processing...
+                              </button>
+                                    </div>
+                                </div>
+
+                                <div id="nftImageDiv" class="text-center">
+                                    <img id="nftImage" src="https://nftcrypto.io/wp-content/uploads/2023/05/NFTs-for-Dummies-Nftcrypto.io_.png" class="rounded-circle" alt="" width="400">
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="col d-flex">
+                        <div class="card radius-10 w-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">Notifications</h5>
+                                        <p class="mb-0 font-13">
+                                            <i class="bx bxs-calendar"></i>
+                                            <!-- Son 30 gün bildirimleri -->
+                                            Last 30 days notifications
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive mt-4">
+                                    <table class="table align-middle mb-0 table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="ms-2">
+                                                            <h6 class="mb-1 font-14">Notification Title</h6>
+                                                            <p class="mb-0 font-13">Notification short description.</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>2 Days</td>
+                                                <td>
+                                                    <div class="badge rounded-pill bg-light text-white w-100">Completed</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="ms-2">
+                                                            <h6 class="mb-1 font-14">Notification Title</h6>
+                                                            <p class="mb-0 font-13">Notification short description.</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>2 Days</td>
+                                                <td>
+                                                    <div class="badge rounded-pill bg-light text-white w-100">Completed</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="ms-2">
+                                                            <h6 class="mb-1 font-14">Notification Title</h6>
+                                                            <p class="mb-0 font-13">Notification short description.</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>2 Days</td>
+                                                <td>
+                                                    <div class="badge rounded-pill bg-light text-white w-100">Completed</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="ms-2">
+                                                            <h6 class="mb-1 font-14">Notification Title</h6>
+                                                            <p class="mb-0 font-13">Notification short description.</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>2 Days</td>
+                                                <td>
+                                                    <div class="badge rounded-pill bg-light text-white w-100">Completed</div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8 d-flex">
+                        <div class="card radius-10 w-100">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div id="world-map-markers" style="height: 300px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <div class="card radius-10 overflow-hidden">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="">
+                                        <p class="mb-1">Progress Payments</p>
+                                        <h4 class="mb-0">N/A%</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="chart13"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleDarkModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-white">DDos Attack Stats</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-white">
+                                <table id="stats" class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Target</th>
+                                            <th>Port</th>
+                                            <th>Method</th>
+                                            <th>PPS</th>
+                                            <th>BPS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="statsRows"></tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay toggle-icon"></div>
+
+        <a href="javaScript:;" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
+    </div>
+
+    <script>
+        if (typeof module === "object") {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+
+    <script src="assets/js/index.js"></script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!--plugins-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+    <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+    <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+    <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+    <script src="assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- <script src="assets/plugins/vectormap/jvectormap.custom.js"></script> -->
+
+    <!--notification js -->
+    <script src="assets/plugins/notifications/js/lobibox.min.js"></script>
+    <script src="assets/plugins/notifications/js/notifications.min.js"></script>
+
+    <script src="assets/js/dashboard.js"></script>
+
+    <!--app JS-->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/notification.js"></script>
+    <!-- <script src="assets/js/metamaskAdapter.js"></script> -->
+    <!-- <script src="assets/js/walletConnectAdapter.js"></script> -->
+
+    <!-- <script src="assets/js/pages/ddos.js"></script>
+    <script src="assets/js/pages/super.js"></script> -->
+    <script src="assets/js/mqttRegister.js"></script>
+
+    <script src="assets/js/walletConnectV2Adapter.js"></script>
+    <!-- <script src="assets/js/contractAbi.js"></script>
+    <script src="assets/js/nft.js"></script> -->
+
+    <script>
+        if (window.module) module = window.module;
+    </script>
+</body>
+
+</html>

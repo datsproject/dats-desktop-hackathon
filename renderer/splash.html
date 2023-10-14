@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/app.css" rel="stylesheet">
+
+    <title>Dats Project</title>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <div class="wrapper">
+        <div class="text-center">
+            <img src="assets/images/dats-logo.png" width="250px" alt="logo icon">
+        </div>
+        <div class="card radius-10 shadow-none bg-transparent">
+            <div class="card-body">
+                <div class="d-lg-flex align-items-center">
+                    <div>
+                        <h5 class="mb-1 text-center">Check dependencies</h5>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="dashboard-top-countries mb-0 px-2">
+                <ul id="checkList" class="list-group list-group-flush radius-10">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        if (typeof module === "object") {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/pages/splash.js"></script>
+
+    <script>
+        if (window.module) module = window.module;
+    </script>
+</body>
+
+</html>
