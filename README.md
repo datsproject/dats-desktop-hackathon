@@ -1,6 +1,6 @@
 ## About application.
 
-DatsProject cross plarform electron application.
+DatsProject cross plarform (Win, MAC, Linux) electron application.
 
 ## Package
 
